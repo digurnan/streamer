@@ -1,0 +1,24 @@
+
+
+
+
+syntax="proto3";
+
+package api;
+
+message AudioRequest {
+    bytes content = 1;
+}
+
+message Response {
+    string blah = 1;
+}
+
+message Value {
+    double timestamp = 1;
+    double pitch = 2;
+}
+
+service Streamer {
+    rpc PitchCompute(stream AudioRequest) returns (stream Response) {}
+}
